@@ -26,13 +26,14 @@ public class GameManager : MonoBehaviour
         isOnCooldown = true;
 
         // Hide or destroy all enemies
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (var e in enemies) e.SetActive(false);
+        EnemyController[] enemyController = FindObjectsOfType<EnemyController>();
+      //  GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var e in enemyController) e.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(5f);
 
         // Reactivate (simulate new wave)
-        foreach (var e in enemies) if (e != null) e.SetActive(true);
+        foreach (var e in enemyController) if (e != null) e.gameObject.SetActive(true);
 
         isOnCooldown = false;
     }

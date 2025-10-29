@@ -431,6 +431,8 @@ MonoBehaviour:
   spawnRadius: 25
   spawnInterval: 3
   maxEnemies: 20
+  undergroundOffset: -2
+  riseDuration: 1.5
   showGizmos: 1
 --- !u!4 &211680540
 Transform:
