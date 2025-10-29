@@ -10,7 +10,9 @@ public class FireballProjectile : MonoBehaviour
         {
             TowerHealth tower = other.GetComponent<TowerHealth>();
             if (tower != null)
+            {
                 tower.TakeDamage((int)damage);
+            }
 
             Destroy(gameObject);
         }

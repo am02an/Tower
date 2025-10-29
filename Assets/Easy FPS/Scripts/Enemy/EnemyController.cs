@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     public Transform firePoint;
 
     [Header("Runtime")]
+    public bool stopFire;
     public EnemySpawner spawner;
     private TowerHealth towerHealth;
     private bool isAttacking = false;
@@ -50,6 +51,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (stopFire) return;
         if (towerHealth == null) return;
 
          distance = Vector3.Distance(transform.position, towerHealth.targetPoint.position);
@@ -121,6 +123,7 @@ public class EnemyController : MonoBehaviour
 
     private void ShootFireball()
     {
+        if (stopFire) return;
         if (fireballPrefab == null || firePoint == null || towerHealth == null) return;
 
         Vector3 target = towerHealth.targetPoint.position;
